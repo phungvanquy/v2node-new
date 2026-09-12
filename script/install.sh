@@ -267,13 +267,13 @@ install_v2node() {
     cd /usr/local/v2node/
 
     if  [[ -z "$version_param" ]] ; then
-        last_version=$(curl -Ls "https://api.github.com/repos/wyx2685/v2node/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+        last_version=$(curl -Ls "https://api.github.com/repos/phungvanquy/v2node-new/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
         if [[ ! -n "$last_version" ]]; then
             echo -e "${red}Unable to detect the v2node version, possibly due to the GitHub API rate limit. Try again later or specify a version to install.${plain}"
             exit 1
         fi
         echo -e "${green}Latest version detected: ${last_version}. Starting installation...${plain}"
-        url="https://github.com/wyx2685/v2node/releases/download/${last_version}/v2node-linux-${arch}.zip"
+        url="https://github.com/phungvanquy/v2node-new/releases/download/${last_version}/v2node-linux-${arch}.zip"
         curl -sL "$url" | pv -s 30M -W -N "Download progress" > /usr/local/v2node/v2node-linux.zip
         if [[ $? -ne 0 ]]; then
             echo -e "${red}Failed to download v2node. Make sure your server can download files from GitHub.${plain}"
@@ -281,7 +281,7 @@ install_v2node() {
         fi
     else
     last_version=$version_param
-        url="https://github.com/wyx2685/v2node/releases/download/${last_version}/v2node-linux-${arch}.zip"
+        url="https://github.com/phungvanquy/v2node-new/releases/download/${last_version}/v2node-linux-${arch}.zip"
         curl -sL "$url" | pv -s 30M -W -N "Download progress" > /usr/local/v2node/v2node-linux.zip
         if [[ $? -ne 0 ]]; then
             echo -e "${red}Failed to download v2node $1. Make sure this version exists.${plain}"
@@ -375,7 +375,7 @@ EOF
     fi
 
 
-    curl -o /usr/bin/v2node -Ls https://raw.githubusercontent.com/wyx2685/v2node/main/script/v2node.sh
+    curl -o /usr/bin/v2node -Ls https://raw.githubusercontent.com/phungvanquy/v2node-new/main/script/v2node.sh
     chmod +x /usr/bin/v2node
 
     cd $cur_dir

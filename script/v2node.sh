@@ -107,7 +107,7 @@ before_show_menu() {
 }
 
 install() {
-    bash <(curl -Ls https://raw.githubusercontent.com/wyx2685/v2node/master/script/install.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/phungvanquy/v2node-new/main/script/install.sh)
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start
@@ -123,7 +123,7 @@ update() {
     else
         version=$2
     fi
-    bash <(curl -Ls https://raw.githubusercontent.com/wyx2685/v2node/master/script/install.sh) $version
+    bash <(curl -Ls https://raw.githubusercontent.com/phungvanquy/v2node-new/main/script/install.sh) $version
     if [[ $? == 0 ]]; then
         echo -e "${green}Update complete. v2node has restarted automatically. Use v2node log to view the runtime logs.${plain}"
         exit
@@ -307,7 +307,7 @@ show_log() {
 }
 
 update_shell() {
-    wget -O /usr/bin/v2node -N --no-check-certificate https://raw.githubusercontent.com/wyx2685/v2node/master/script/v2node.sh
+    wget -O /usr/bin/v2node -N --no-check-certificate https://raw.githubusercontent.com/phungvanquy/v2node-new/main/script/v2node.sh
     if [[ $? != 0 ]]; then
         echo ""
         echo -e "${red}Failed to download the script. Check whether this machine can connect to GitHub.${plain}"
@@ -513,7 +513,7 @@ show_usage() {
 show_menu() {
     echo -e "
   ${green}v2node backend management script, ${plain}${red}not for Docker${plain}
---- https://github.com/wyx2685/v2node ---
+--- https://github.com/phungvanquy/v2node-new ---
   ${green}0.${plain} Edit configuration
 ————————————————
   ${green}1.${plain} Install v2node
